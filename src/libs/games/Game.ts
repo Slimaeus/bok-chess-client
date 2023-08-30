@@ -32,8 +32,8 @@ export class Game {
     return this.board.map((row, rowIndex) =>
       row.map((item, columnIndex) => {
         if (rowIndex % 2)
-          return new Square({item: new Piece({id: 2, name: "Ceberus", star: 3})})
-        return new Square({item: new Piece({id: 1, name: "Dragon", star: 1})})
+          return new Square({item: new Piece({id: rowIndex * this.rowNumber + columnIndex, name: "Ceberus", star: columnIndex % 5 + 1})})
+        return new Square({item: new Piece({id: rowIndex * this.rowNumber + columnIndex, name: "Dragon", star: columnIndex % 5 + 1})})
       })
     )
   }

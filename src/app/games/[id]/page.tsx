@@ -28,37 +28,46 @@ export default function Page(options: GamePageOptions) {
                                 ' ' +
                                 'flex w-24 justify-center cursor-pointer'
 
-                            const itemColorStyle = (color: string) => `${baseClassName} bg-${color}-500 hover:bg-${color}-400`
+                            const itemColorStyle = (color: string) => `${baseClassName} bg-white-500 hover:bg-${color}-400`
 
                             const white = itemColorStyle('white')
                             const green = itemColorStyle('green')
                             const blue = itemColorStyle('blue')
-                            const red = itemColorStyle('red')
                             const yellow = itemColorStyle('yellow')
+                            const red = itemColorStyle('red')
 
                             const emptyCell =
                                 baseClassName +
                                 ' ' +
                                 'bg-slate-500 hover:bg:slate-400'
 
-                            const className = 
-                                cell === null
-                                    ? emptyCell
-                                    // : cell.isRed
-                                    : true
-                                    ? red
-                                    : blue
-                                    
+                            const getClassName = (star: number) : string => {
+                              switch (star) {
+                                case 1:
+                                  return white
+                                case 2:
+                                  return green
+                                case 3:
+                                  return blue
+                                case 4:
+                                  return yellow
+                                case 5:
+                                  return red
+                              }
+                              return red
+                            } 
                             return (
-                              cell !== null && cell.item !== null && <div
+                              cell !== null && cell.item !== null && 
+                              <div
                                     key={`cell_${j}`}
-                                    className={className}
-                                    onClick={() => {}
-                                        // selectSquareHandler(cell, i, j)
-                                    }
-                                >{`${ cell.item.id} ${
-                                    cell.item.name
-                                } ${cell.item.star}`}</div>
+                                    className={getClassName(cell.item.star)}
+                                    onClick={() => {
+                                      console.log(cell)
+                                      console.log(`${getClassName(cell.item?.star ?? 1)}`)
+                                    }}
+                              >{`${ cell.item.id} ${
+                                  cell.item.name
+                              } ${cell.item.star}`}</div>
                             )
                         })}
                     </div>
