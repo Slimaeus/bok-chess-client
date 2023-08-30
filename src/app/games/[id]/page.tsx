@@ -28,22 +28,20 @@ export default function Page(options: GamePageOptions) {
                                 ' ' +
                                 'flex w-24 justify-center cursor-pointer'
 
-                            const red =
-                                baseClassName +
-                                ' ' +
-                                'bg-red-500 hover:bg-red-400'
+                            const itemColorStyle = (color: string) => `${baseClassName} bg-${color}-500 hover:bg-${color}-400`
 
-                            const blue =
-                                baseClassName +
-                                ' ' +
-                                'bg-blue-500 hover:bg-blue-400'
+                            const white = itemColorStyle('white')
+                            const green = itemColorStyle('green')
+                            const blue = itemColorStyle('blue')
+                            const red = itemColorStyle('red')
+                            const yellow = itemColorStyle('yellow')
 
                             const emptyCell =
                                 baseClassName +
                                 ' ' +
                                 'bg-slate-500 hover:bg:slate-400'
 
-                            const className =
+                            const className = 
                                 cell === null
                                     ? emptyCell
                                     // : cell.isRed
