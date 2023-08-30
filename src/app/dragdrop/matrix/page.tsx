@@ -27,10 +27,17 @@ export default function Page() {
       const sourceRow = parseInt(source.droppableId)
       const destinationRow = parseInt(destination.droppableId)
 
-      const newList = [...list];
-      const [removed] = newList[sourceRow].splice(source.index, 1);
-      newList[destinationRow].splice(destination.index, 0, removed);
-      setList(newList);
+      console.log(destination.index)
+      
+        const newList = [...list];
+
+        const temp = newList[sourceRow][source.index]
+        newList[sourceRow][source.index] = newList[destinationRow][destination.index]
+        newList[destinationRow][destination.index] = temp
+        setList(newList);
+
+      // const [removed] = newList[sourceRow].splice(source.index, 1);
+      // newList[destinationRow].splice(destination.index, 0, removed);
     }
   };
 
