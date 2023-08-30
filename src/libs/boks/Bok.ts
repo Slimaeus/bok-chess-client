@@ -1,4 +1,7 @@
-class Bok {
+import { Piece } from "../pieces/Piece"
+import { Square } from "../squares/Square"
+
+export class Bok {
   piece: Piece
   squares: Square[]
   constructor(piece: Piece) {

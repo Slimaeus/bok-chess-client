@@ -1,6 +1,3 @@
-class Board {
-  items: Square[]
-  constructor(items: Square[]) {
-    this.items = items 
-  }
-}
+import { BoardItem } from "./BoardItem";
+
+export type Board = BoardItem[][]
